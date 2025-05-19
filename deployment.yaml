@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coin-toss-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: coin-toss
+  template:
+    metadata:
+      labels:
+        app: coin-toss
+    spec:
+      containers:
+      - name: coin-toss
+        image: ethanrin/coin-toss:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: "250m"       
+            memory: "256Mi"   
+          limits:
+            cpu: "500m"      
+            memory: "512Mi"   

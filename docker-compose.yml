@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: simple_app_10_1_p
+    ports:
+      - "3000:3000"
+    volume: 
+      - .:/app
+    working_dir: /app
+    command: node server.js
